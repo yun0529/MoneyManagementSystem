@@ -22,7 +22,7 @@ public class MenuManager {
 				addMoney();
 				break;
 			case 2:
-				Spending();
+				spendMoney();
 				break;
 			case 3:
 				editMoney();
@@ -30,6 +30,10 @@ public class MenuManager {
 			case 4:
 				viewMoney();
 				break;
+			default:
+				break;
+				
+					
 			}
 		}
 	}
@@ -41,12 +45,12 @@ public class MenuManager {
 		System.out.print("Amount : ");
 		int addAmount = sc.nextInt();
 	}
-	public static void Spending() {
-		System.out.print("Spending Name : ");
-		String spendingName = sc.nextLine();
+	public static void spendMoney() {
+		System.out.print("Spend Name : ");
+		String spendName = sc.nextLine();
 		sc.nextLine();
 		System.out.print("Amount : ");
-		int spendingAmount = sc.nextInt();
+		int spendAmount = sc.nextInt();
 	}
 	public static void editMoney() {
 		String deleteName;
