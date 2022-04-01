@@ -1,26 +1,38 @@
 package ClassProject;
 
+
 public class Money {
+	String classification = null;
 	String moneyName = null;
 	int amount = 0;
-	String spendName = null;
-	int spendAmount = 0;
-	public Money(String moneyName, int amount, String spendName, int spendAmount) {
+	public Money(String classification, String moneyName, int amount) {
+		this.classification = classification; 
 		this.moneyName = moneyName;
 		this.amount = amount;
-		this.spendName = spendName;
-		this.spendAmount = spendAmount;
+	}
+	public String getClassification() {
+		return classification;
+	}
+	public void setClassification(String classification) {
+		this.classification = classification;
+	}
+	public String getMoneyName() {
+		return moneyName;
+	}
+	public void setMoneyName(String moneyName) {
+		this.moneyName = moneyName;
+	}
+	public int getAmount() {
+		return amount;
+	}
+	public void setAmount(int amount) {
+		this.amount = amount;
 	}
 	
-	public void printLog() {
-		if(amount == 0 && spendAmount != 0) {
-			System.out.println("spendName : " + spendName + " , spendAmount : " + spendAmount);
-		}else if(spendAmount == 0 && amount != 0) {
-			System.out.println("addMoneyName : " + moneyName + " , addAmount : " + amount);
-		}else {
-			System.out.println("addMoneyName : " + moneyName + " , addAmount : " + amount + 
-					" , spendName : " + spendName + " , spendAmount : " + spendAmount);
-		}
-		
+	@Override
+	public String toString() {
+		return "Money [classification=" + classification + ", moneyName=" + moneyName + ", amount=" + amount + "]";
 	}
+	
+	
 }

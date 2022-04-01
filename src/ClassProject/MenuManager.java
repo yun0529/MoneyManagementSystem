@@ -10,8 +10,8 @@ public class MenuManager {
 		
 		while(num != 5) {
 			System.out.println("*** Money Management System Menu ***");
-			System.out.println("1. Pocket Money");
-			System.out.println("2. Spending");
+			System.out.println("1. Add Money");
+			System.out.println("2. Delete Money");
 			System.out.println("3. Edit Money");
 			System.out.println("4. View Money");
 			System.out.println("5. Exit");
@@ -22,7 +22,7 @@ public class MenuManager {
 				moneyManager.addMoney();
 				break;
 			case 2:
-				moneyManager.spendMoney();
+				moneyManager.deleteMoney();
 				break;
 			case 3:
 				moneyManager.editMoney();
