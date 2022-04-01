@@ -43,10 +43,11 @@ public class MoneyManager {
 			if(name.equals(deleteName)) {
 				moneyList.remove(count);
 				System.out.println("the money is deleted");
-				break;
+				return;
 			}
 			count++;
 		}
+		System.out.println("Can't find moneyName");
 	}
 
 	public void editMoney() {
@@ -66,10 +67,11 @@ public class MoneyManager {
 				System.out.print("input edit amount : ");
 				editAmount = sc.nextInt();
 				moneyList.get(count).amount = editAmount;
-				break;
+				return;
 			}
 			count++;
 		}
+		System.out.println("Can't find moneyName");
 	}
 	public void viewMoney() {
 		for(Money i : moneyList) {
