@@ -51,3 +51,36 @@
    - deletemoney() 메서드에서는 돈의 이름을 입력받아 리스트에 있는지 확인하고 찾으면 삭제, 찾지 못하면 이름을 찾지 못했다고 출력합니다.
    - editMoney() 메서드에서는 돈의 이름을 입력받아 리스트에 있는지 확인하고 찾으면 수정할 금액을 입력받고 수정, 찾지 못하면 이름을 찾지 못했다고 출력합니다.
    - viewMoney() 메서드에서는 Money 클래스의 내역을 출력하는 printLog() 메서드를 사용하여 입력, 삭제, 수정한 최종 내역을 출력합니다.
+2022-04-24(5차시-실습)
+  기존코드에서 수정된 내용
+   - 메뉴 및 log를 출력하는 메소드의 이름을 viewMoneys로 변경
+   - MoneyManager 클래스에서 진행했던 addMoney 메소드를 각각의 클래스에서 수행할 수 있도록 하였음
+   - SavingMoney,LoanMoney 클래스를 만들고 Money 클래스를 상속하게 하였음
+   - enum 형 클래스인 MoneyKind 클래스를 만들고 돈의 입,출금 내역을 입력하기 전 어떤 유형으로 입,출금 할것인지 정할 수 있도록 하였음 
+   - Money 클래스의 맴버변수들은 캡슐화 하여 getter, setter 메소드로 접근할 수 있도록 하였음
+   - Money 패키지를 하나 추가하여 Money 클래스와 이를 상속하는 클래스를 나눠주었음
+  MoneyManager 클래스
+   - addMoney 메소드에서 돈의 분류를 입력받아 case별로 어떻게 실행할지 나눠주었음
+   - viewMoneys 메소드에서 내역을 출력하기전 내역의 갯수를 출력하고 내역 출력이후 현재 갖고있는 총 금액을 출력하도록 하였음
+  Money 클래스
+   - MoneyKind 클래스의 kind라는 인스턴스를 선언하고 기본적으로 입,출금이 될 수 있도록 Checking_Account로 초기화 하였음
+   - kind에 대한 getter, setter 메소드를 추가하였음
+   - MoneyManager의 addMoney매소드에서 내용을 가져와 Money클래스에서 getKindInput 메소드에서 입,출금에 대한 기능을 수행하도록 하였음
+   - getKindInput 메소드의 기능은 기본적으로 addMoney 메소드에서 했던 기능과 동일하며 처음 분류를 입력하라는 메시지에 어떤 분류를 입력해야하는지 (add / spend)로 표시
+   - getKindInput 메소드의 반환형을 boolean으로 한 것은 Money 클래스를 상속받는 클래스에서 boolean 값을 반환해야 하기에 그렇게 설정 하였음
+  MoneyKind 클래스
+   - 금액의 유형을 Checking_Account(입,출금), Saving_Account(적금), Loan(대출) 으로 나눌 수 있도록 선언
+  SavingMoney 클래스
+   - Money 클래스를 상속받는 클래스
+   - MoneyManager의 addMoney매소드에서 내용을 가져와 Money클래스에서 getKindInput 메소드에서 적금에 대한 기능을 수행하도록 하였음
+   - getKindInput 메소드의 기능은 기본적으로 addMoney 메소드에서 했던 기능과 동일
+   - 처음 분류를 입력하라는 메시지에 어떤 분류를 입력해야하는지 (deposit)으로 표시
+   - 입금을 할지 말지에 대해 확인하는 answer라는 변수 추가
+   - 'y'또는 'Y' 입력시 금액의 이름과 액수를 입력받음 'n'또는 'N' 입력시 금액을 입력받지 않고 메뉴로 돌아감 
+  LoanMoney 클래스
+   - Money 클래스를 상속받는 클래스
+   - MoneyManager의 addMoney매소드에서 내용을 가져와 Money클래스에서 getKindInput 메소드에서 대출에 대한 기능을 수행하도록 하였음
+   - getKindInput 메소드의 기능은 기본적으로 addMoney 메소드에서 했던 기능과 동일
+   - 처음 분류를 입력하라는 메시지에 어떤 분류를 입력해야하는지 (loan)으로 표시
+   - 대출을 할지 말지에 대해 확인하는 answer라는 변수 추가
+   - 'y'또는 'Y' 입력시 금액의 이름과 액수를 입력받음 'n'또는 'N' 입력시 금액을 입력받지 않고 메뉴로 돌아감  
