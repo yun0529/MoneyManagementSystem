@@ -13,7 +13,7 @@ public class MenuManager {
 			System.out.println("1. Add Money");
 			System.out.println("2. Delete Money");
 			System.out.println("3. Edit Money");
-			System.out.println("4. View Money");
+			System.out.println("4. View Moneys");
 			System.out.println("5. Exit");
 			System.out.print("Select one number between 1 - 5 : ");
 			num = sc.nextInt();
@@ -28,7 +28,7 @@ public class MenuManager {
 				moneyManager.editMoney();
 				break;
 			case 4:
-				moneyManager.viewMoney();
+				moneyManager.viewMoneys();
 				break;
 			default:
 				break;
