@@ -4,14 +4,16 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Scanner;
 
+import Money.CheckingAccount;
 import Money.LoanMoney;
 import Money.Money;
+import Money.MoneyInput;
 import Money.SavingMoney;
 
 public class MoneyManager {
-	Money money = new Money(null, null,0);
-	static ArrayList<Money> moneyList = new ArrayList<>();
-	Iterator<Money> addItr = moneyList.iterator();
+	MoneyInput moneyInput;
+	static ArrayList<MoneyInput> moneyList = new ArrayList<>();
+	Iterator<MoneyInput> addItr = moneyList.iterator();
 	Scanner sc;
 	public MoneyManager(Scanner sc) {
 		this.sc = sc;
@@ -27,20 +29,20 @@ public class MoneyManager {
 			kind = sc.nextInt();
 			switch(kind) {
 			case 1:
-				money = new Money();
-				money.getKindInput(sc);
-				moneyList.add(money);
+				moneyInput = new CheckingAccount();
+				moneyInput.getKindInput(sc);
+				moneyList.add(moneyInput);
 				break;
 			case 2:
-				money = new SavingMoney();
-				if(money.getKindInput(sc) == true) {
-					moneyList.add(money);
+				moneyInput = new SavingMoney();
+				if(moneyInput.getKindInput(sc) == true) {
+					moneyList.add(moneyInput);
 				}
 				break;
 			case 3:
-				money = new LoanMoney();
-				if(money.getKindInput(sc) == true) {
-					moneyList.add(money);
+				moneyInput = new LoanMoney();
+				if(moneyInput.getKindInput(sc) == true) {
+					moneyList.add(moneyInput);
 				}
 				break;
 			default:
@@ -57,11 +59,11 @@ public class MoneyManager {
 		sc.nextLine();
 		System.out.print("Delete Money Name : ");
 		String deleteName = sc.nextLine();
-		if(money == null) {
+		if(moneyInput == null) {
 			System.out.println("the money has not been registered");
 			return;
 		}
-		for(Money j : moneyList) {
+		for(MoneyInput j : moneyList) {
 			String name = j.getMoneyName();
 			if(name.equals(deleteName)) {
 				moneyList.remove(count);
@@ -80,11 +82,11 @@ public class MoneyManager {
 		sc.nextLine();
 		System.out.print("Edit Money Name : ");
 		editName = sc.nextLine();
-		if(money == null) {
+		if(moneyInput == null) {
 			System.out.println("the money has not been registered");
 			return;
 		}
-		for(Money j : moneyList) {
+		for(MoneyInput j : moneyList) {
 			String name = j.getMoneyName();
 			if(name.equals(editName)) {
 				System.out.print("input edit amount : ");
@@ -98,11 +100,11 @@ public class MoneyManager {
 	}
 	public void viewMoneys() {
 		System.out.println("total count : " + moneyList.size());
-		for(Money i : moneyList) {
+		for(MoneyInput i : moneyList) {
 			System.out.println(i.toString());
 		}
 		int totalMoney = 0;
-		for(Money j : moneyList) {
+		for(MoneyInput j : moneyList) {
 			if(j.getClassification().equals("add")) {
 				totalMoney = totalMoney + j.getAmount();
 			}

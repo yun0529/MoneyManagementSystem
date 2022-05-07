@@ -2,7 +2,7 @@ package Money;
 
 import java.util.Scanner;
 
-public class SavingMoney extends Money{
+public class SavingMoney extends Money implements MoneyInput{
 
 	public boolean getKindInput(Scanner sc) {
 		String classification;
