@@ -85,3 +85,20 @@
    - 처음 분류를 입력하라는 메시지에 어떤 분류를 입력해야하는지 (loan)으로 표시
    - 대출을 할지 말지에 대해 확인하는 answer라는 변수 추가
    - 'y'또는 'Y' 입력시 금액의 이름과 액수를 입력받음 'n'또는 'N' 입력시 금액을 입력받지 않고 메뉴로 돌아감  
+2022-05-08 (7차시 실습)
+  추가된 코드
+  CheckingAccount 클래스
+   - Money클래스에 있던 getKindInput() 메소드를 가져와 CheckingAccount에 해당하는 값들을 입력받을 수 있도록 하였다. 
+   - Money 클래스를 상속받고 MoneyInput 인터페이스를 implements 하였다.
+  MoneyInput 인터페이스
+   - MoneyInput 인터페이스를 구현하는 클래스들이 필수로 구현해야하는 메소드들을 정의하였다.
+   - getKindInput(), getMoneyName(), setAmount(int editAmount), getClassification(), getAmount() 메소드들이 필수로 구현해야 하는 메소드다.
+  수정된 코드
+  LoanMoney, SavingMoney 클래스
+   - 각각의 클래스에서 MoneyInput 인터페이스를 구현하도록 하였다.
+  MoneyManager 클래스
+   - 원래 있던 Moeny 클래스의 객체들이 모두 MoenyInput 인터페이스를 구현하기에 객체를 담고있는 변수의 형을 MoneyInput으로 바꿔주었다.
+  Moeny 클래스
+   - getKindInput() 클래스는 Money 클래스를 상속하는 모든 클래스가 구현해야 하는 메소드이기 때문에 해당 클래스에서 삭제하고 interface에 추가하였다.
+   - 나중에 Money 클래스를 상속받는 클래스들이 구현해야 하는 메소드가 있을 경우를 위해 Money 클래스를 abstract 클래스로 변경하였다.
+      - 현재는 출력하는 형식이 모두 같기 때문에 toString() 메소드를 오버라이딩 한 것에서 변경하지 않았다.
