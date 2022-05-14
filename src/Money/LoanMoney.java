@@ -4,11 +4,9 @@ import java.util.Scanner;
 
 public class LoanMoney extends Money implements MoneyInput{
 	public boolean getKindInput(Scanner sc) {
-		String classification;
+		super.setKind(MoneyKind.Loan);
 		sc.nextLine();
-		System.out.print("input classification (loan) : ");
-		classification = sc.next();
-		this.classification = classification;
+		setMoneyClassification(sc);
 		
 		char answer = 'x';
 		while(answer != 'y' || answer != 'Y' || answer != 'n' || answer != 'N') {
@@ -16,22 +14,18 @@ public class LoanMoney extends Money implements MoneyInput{
 			//sc.nextLine();
 			answer = sc.next().charAt(0);
 			if(answer == 'y' || answer == 'Y') {
-				String moneyName;
 				System.out.print("Money Name : ");
 				sc.nextLine();
 				moneyName = sc.nextLine();
-				this.moneyName = moneyName;
 				
-				System.out.print("Amount : ");
-				int addAmount = sc.nextInt();
-				this.amount = addAmount;
+				super.setMoneyAmount(sc);
 				break;
 			}
 			else if(answer == 'n' || answer == 'N'){
 				break;
 			}
 			else {
-				break;
+				continue;
 			}
 		}
 		if(answer == 'Y' || answer == 'y') {

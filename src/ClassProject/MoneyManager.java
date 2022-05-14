@@ -1,6 +1,7 @@
 package ClassProject;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Iterator;
 import java.util.Scanner;
 
@@ -26,28 +27,36 @@ public class MoneyManager {
 			System.out.println("2. for Saving_Account");
 			System.out.println("3. for Loan");
 			System.out.print("Select num for Money Kind between 1 and 3 : ");
-			kind = sc.nextInt();
-			switch(kind) {
-			case 1:
-				moneyInput = new CheckingAccount();
-				moneyInput.getKindInput(sc);
-				moneyList.add(moneyInput);
-				break;
-			case 2:
-				moneyInput = new SavingMoney();
-				if(moneyInput.getKindInput(sc) == true) {
+			try {
+				kind = sc.nextInt();
+				switch(kind) {
+				case 1:
+					moneyInput = new CheckingAccount();
+					moneyInput.getKindInput(sc);
 					moneyList.add(moneyInput);
+					break;
+				case 2:
+					moneyInput = new SavingMoney();
+					if(moneyInput.getKindInput(sc) == true) {
+						moneyList.add(moneyInput);
+					}
+					break;
+				case 3:
+					moneyInput = new LoanMoney();
+					if(moneyInput.getKindInput(sc) == true) {
+						moneyList.add(moneyInput);
+					}
+					break;
+				default:
+					System.out.println("Select num for Student Kind between 1 and 2 : ");
+					break;
 				}
-				break;
-			case 3:
-				moneyInput = new LoanMoney();
-				if(moneyInput.getKindInput(sc) == true) {
-					moneyList.add(moneyInput);
+			}catch(InputMismatchException e) {
+				System.out.println("Please put an integer between 1 and 3!");
+				if(sc.hasNext()) {
+					sc.next();
 				}
-				break;
-			default:
-				System.out.println("Select num for Student Kind between 1 and 2 : ");
-				break;
+				kind = -1;
 			}
 		}
 		
