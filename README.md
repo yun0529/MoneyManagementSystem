@@ -102,3 +102,20 @@
    - getKindInput() 클래스는 Money 클래스를 상속하는 모든 클래스가 구현해야 하는 메소드이기 때문에 해당 클래스에서 삭제하고 interface에 추가하였다.
    - 나중에 Money 클래스를 상속받는 클래스들이 구현해야 하는 메소드가 있을 경우를 위해 Money 클래스를 abstract 클래스로 변경하였다.
       - 현재는 출력하는 형식이 모두 같기 때문에 toString() 메소드를 오버라이딩 한 것에서 변경하지 않았다.
+2022-05-14 (8차시 실습)
+  추가된 코드
+  MenuManager 클래스
+   - 메뉴를 선택할 때 입력된 값이 정수형이 아니라면 InputMismatchException예외를 try-catch문을 통해 예외발생시 정수를 입력하라는 메시지를 출력한다.
+  MoneyManager 클래스
+   - 돈 사용내역의 분류를 선택할 때 입력된 값이 정수형이 아니라면 InputMismatchException예외를 try-catch문을 통해 예외발생시 정수를 입력하라는 메시지를 출력한다.
+  Money 클래스
+   - 사용한 금액을 입력할 때 입력된 값이 정수형이 아니라면 InputMismatchException예외를 try-catch문을 통해 예외발생시 정수를 입력하라는 메시지를 출력한다.
+   - Exception 클래스를 상속하는 ClassificationException 클래스를 만들고 돈의 분류를 입력할 때 입력해야하는 형식에 맞지 않은 단어를 입력하면 ClassificationException 예외를 던지       고, 해당 단어를 입력하라는 메시지를 출력한다.
+2022-05-22 (9차시 실습)
+  추가된 코드
+  MenuManager
+   - 
+  MoneyManager
+   - Serializable을 구현하고 Scanner와 Iterator 를 transient 처리해주어 이를 시리얼리제이션 파일에 저장하지 않게 한다.
+  Money
+   - Serializable을 구현하여 해당 클래스의 인스턴스를 시리얼리제이션 할 수 있게 한다.
