@@ -114,7 +114,7 @@
 2022-05-22 (9차시 실습)
   추가된 코드
   MenuManager
-   - 
+   - LogManager 와 Logger를 사용하여 추가, 삭제, 수정, 조회 등이 완료되면 완료된 시각과 로그를 띄워준다.
   MoneyManager
    - Serializable을 구현하고 Scanner와 Iterator 를 transient 처리해주어 이를 시리얼리제이션 파일에 저장하지 않게 한다.
   Money
