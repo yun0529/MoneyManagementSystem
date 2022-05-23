@@ -1,11 +1,17 @@
 package Money;
 
+import java.io.Serializable;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import Exception.ClassificationException;
 
-public abstract class Money {
+public abstract class Money implements MoneyInput, Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8662641725169276222L;
+	
 	protected MoneyKind kind = MoneyKind.Checking_Account;
 	protected String classification = null;
 	protected String moneyName = null;

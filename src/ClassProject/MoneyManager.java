@@ -1,49 +1,58 @@
 package ClassProject;
 
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.InputMismatchException;
 import java.util.Iterator;
 import java.util.Scanner;
 
+
 import Money.CheckingAccount;
 import Money.LoanMoney;
-import Money.Money;
 import Money.MoneyInput;
 import Money.SavingMoney;
 
-public class MoneyManager {
+public class MoneyManager implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -864875625752043795L;
+	Date date = new Date();
+	
 	MoneyInput moneyInput;
-	static ArrayList<MoneyInput> moneyList = new ArrayList<>();
-	Iterator<MoneyInput> addItr = moneyList.iterator();
-	Scanner sc;
+	ArrayList<MoneyInput> moneyList = new ArrayList<>();
+	transient Iterator<MoneyInput> addItr = moneyList.iterator();
+	transient Scanner sc;
 	public MoneyManager(Scanner sc) {
 		this.sc = sc;
 	}
 	
 	public void addMoney() {
 		int kind = 0;
+		Scanner input = new Scanner(System.in);
 		while(kind != 1 && kind != 2 && kind != 3) {
 			System.out.println("1. for Checking_Account");
 			System.out.println("2. for Saving_Account");
 			System.out.println("3. for Loan");
 			System.out.print("Select num for Money Kind between 1 and 3 : ");
 			try {
-				kind = sc.nextInt();
+				kind = input.nextInt();
 				switch(kind) {
 				case 1:
 					moneyInput = new CheckingAccount();
-					moneyInput.getKindInput(sc);
+					moneyInput.getKindInput(input);
 					moneyList.add(moneyInput);
 					break;
 				case 2:
 					moneyInput = new SavingMoney();
-					if(moneyInput.getKindInput(sc) == true) {
+					if(moneyInput.getKindInput(input) == true) {
 						moneyList.add(moneyInput);
 					}
 					break;
 				case 3:
 					moneyInput = new LoanMoney();
-					if(moneyInput.getKindInput(sc) == true) {
+					if(moneyInput.getKindInput(input) == true) {
 						moneyList.add(moneyInput);
 					}
 					break;
@@ -53,8 +62,8 @@ public class MoneyManager {
 				}
 			}catch(InputMismatchException e) {
 				System.out.println("Please put an integer between 1 and 3!");
-				if(sc.hasNext()) {
-					sc.next();
+				if(input.hasNext()) {
+					input.next();
 				}
 				kind = -1;
 			}
@@ -64,10 +73,11 @@ public class MoneyManager {
 	}
 	//iterator로 확인해서 체크하기
 	public void deleteMoney() {
+		Scanner input = new Scanner(System.in);
 		int count = 0;
-		sc.nextLine();
+		input.nextLine();
 		System.out.print("Delete Money Name : ");
-		String deleteName = sc.nextLine();
+		String deleteName = input.nextLine();
 		if(moneyInput == null) {
 			System.out.println("the money has not been registered");
 			return;
@@ -85,12 +95,13 @@ public class MoneyManager {
 	}
 
 	public void editMoney() {
+		Scanner input = new Scanner(System.in);
 		int count = 0;
 		int editAmount;
 		String editName;
-		sc.nextLine();
+		input.nextLine();
 		System.out.print("Edit Money Name : ");
-		editName = sc.nextLine();
+		editName = input.nextLine();
 		if(moneyInput == null) {
 			System.out.println("the money has not been registered");
 			return;
@@ -99,7 +110,7 @@ public class MoneyManager {
 			String name = j.getMoneyName();
 			if(name.equals(editName)) {
 				System.out.print("input edit amount : ");
-				editAmount = sc.nextInt();
+				editAmount = input.nextInt();
 				moneyList.get(count).setAmount(editAmount);
 				return;
 			}
