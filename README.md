@@ -121,3 +121,27 @@
    - Serializable을 구현하고 Scanner와 Iterator 를 transient 처리해주어 이를 시리얼리제이션 파일에 저장하지 않게 한다.
   Money 클래스
    - Serializable을 구현하여 해당 클래스의 인스턴스를 시리얼리제이션 할 수 있게 한다.
+### 2022-05-27 (10차시 실습)  
+ #### 추가된 코드 (아직 기존 코드와 연동은 되지 않았음)  
+  GuiTest 클래스
+   - MenuSelection, AddMoney, ViewMoney 클래스들의 객체를 생성하여 GUI가 의도한 대로 잘 나오는지 테스트 해보기 위한 클래스
+  MenuSelection 클래스
+   - 기존 코드로 작동되던 5가지의 메뉴를 javax.swing 라이브러리의 버튼 클래스를 사용하여 GUI에 띄워줄 수 있도록함
+   - JFrame 클래스를 상속하고 하나의 패널에는 타이틀을 넣어주고 하나의 패널은 FlowLayout으로 패널을 생성한 뒤 5개의 버튼을 추가해줌
+   - 2개의 패널중 타이틀을 저장하는 패널은 레이아웃의 위쪽 공간에 추가하였고 다른 패널은 레이아웃의 가운데 공간에 추가하였음
+  AddMoney 클래스
+   - 기존 코드로 작동되던 금액을 추가하는 과정을 javax.swing 라이브러리의 버튼,텍스트필드 클래스를 사용하여 GUI에 띄워줄 수 있도록함
+   - 패널을 생성하고 패널의 레이아웃을 SpringLayout으로 설정
+   - SpringLayout은 창의 크기와 상관없이 내용물의 크기를 자동으로 조절해 창을 꽉체우도록 함
+   - 금액을 추가할때 입력되어야 하는 것(입,출금할 통장의 종류, 금액의 분류, 금액의 이름, 금액의 양)들의 라벨과 텍스트필드를 생성
+   - 생성한 라벨과 텍스트필드를 패널에 추가
+   - SpringUtilities 클래스의 makeCompactGrid() 메소드를 사용하여 레이아웃을 그리드레이아웃으로 설정
+  ViewMoney 클래스
+   - 기존 코드로 작동되던 내역을 조회하는 과정을 javax.swing 라이브러리의 테이블 클래스를 사용하여 GUI에 띄워줄 수 있도록함
+   - 칼럼의 이름을 저장할 배열과 칼럼의 내용을 저장할 2차원배열을 생성
+   - DefaultTableModel 클래스의 객체 model을 생성하고 model에 addColumn() 메소드를 사용하여 내역에서 조회되어야하는 칼럼을 추가
+   - model에 addRow() 메소드를 사용하여 임의의 값들을 추가
+   - DefaultTableModel 클래스를 사용하면 JTable에서는 할 수 없는 추가나 삭제 메소드를 사용할 수 있음
+   - model을 JTable 클래스의 객체를 생성하면서 전달해주고 생성한 JTable의 객체를 JScrollPane 클래스의 객체를 생성하면서 전달
+  SpringUtilities 클래스
+   - 그리드 레이아웃을 생성할때 도움을 주는 라이브러리
