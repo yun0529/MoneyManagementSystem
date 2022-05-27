@@ -15,12 +15,6 @@ import java.util.logging.Logger;
 
 public class MenuManager{
 	//static EventLogger Logger = new EventLogger("log.txt");
-
-	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -3351191835225893327L;
 	static LogManager lgmngr = LogManager.getLogManager();
 	static Logger log = lgmngr.getLogger(Logger.GLOBAL_LOGGER_NAME);
 	public static void main(String[] args) {
@@ -30,7 +24,7 @@ public class MenuManager{
 		if(moneyManager == null) {
 			moneyManager = new MoneyManager(sc);
 		}
-				//new MoneyManager(sc);
+			//new MoneyManager(sc);
 		
 		selectMenu(sc, moneyManager);
 		putObject(moneyManager,"moneyManager.ser");

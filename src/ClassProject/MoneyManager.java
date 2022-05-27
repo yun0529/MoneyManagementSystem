@@ -127,7 +127,7 @@ public class MoneyManager implements Serializable{
 		for(MoneyInput j : moneyList) {
 			if(j.getClassification().equals("add")) {
 				totalMoney = totalMoney + j.getAmount();
-			}
+			} 
 			else if(j.getClassification().equals("spend")) {
 				totalMoney = totalMoney - j.getAmount();
 			}
