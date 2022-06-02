@@ -35,4 +35,10 @@ public class LoanMoney extends Money implements MoneyInput{
 		}
 		
 	}
+
+	@Override
+	public void setKind(String kind) {
+		// TODO Auto-generated method stub
+		
+	}
 }

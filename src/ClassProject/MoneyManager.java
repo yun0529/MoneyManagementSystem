@@ -7,9 +7,9 @@ import java.util.InputMismatchException;
 import java.util.Iterator;
 import java.util.Scanner;
 
-
 import Money.CheckingAccount;
 import Money.LoanMoney;
+import Money.Money;
 import Money.MoneyInput;
 import Money.SavingMoney;
 
@@ -27,7 +27,8 @@ public class MoneyManager implements Serializable{
 	public MoneyManager(Scanner sc) {
 		this.sc = sc;
 	}
-	
+	public MoneyManager() {
+	}
 	public void addMoney() {
 		int kind = 0;
 		Scanner input = new Scanner(System.in);
@@ -141,5 +142,16 @@ public class MoneyManager implements Serializable{
 		}
 		System.out.println("My Total Money : " +  totalMoney);
 	}
-	
+	public int size() {
+		return moneyList.size();
+	}
+	public MoneyInput get(int index) {
+		return (Money) moneyList.get(index);
+	}
+	public void addMoneyList(MoneyInput money) {
+		moneyList.add(money);
+	}
+	public ArrayList<MoneyInput> getList() {
+		return moneyList;
+	}
 }

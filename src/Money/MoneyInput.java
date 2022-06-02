@@ -10,6 +10,10 @@ public interface MoneyInput {
 	public String getMoneyName();
 
 	public void setAmount(int amount);
+	
+	public void setKind(String kind);
+	
+	public void setMoneyName(String moneyName);
 
 	public Object getClassification();
 	
@@ -17,5 +21,6 @@ public interface MoneyInput {
 
 	public int getAmount();
 
+	public MoneyKind getKind();
 
 }

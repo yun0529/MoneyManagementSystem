@@ -17,16 +17,14 @@ public abstract class Money implements MoneyInput, Serializable {
 	protected String moneyName = null;
 	protected int amount = 0;
 	
-	public Money() {
-	}
+	public Money() {}
+	
 	public Money(String classification, String moneyName, int amount) {
 		this.classification = classification; 
 		this.moneyName = moneyName;
 		this.amount = amount;
 	}
-	public String getClassification() {
-		return classification;
-	}
+	
 	public void setClassification(String classification) throws ClassificationException{
 		if(kind.equals(MoneyKind.Checking_Account)) {
 			if(classification.equals("add") || classification.equals("spend")) {
@@ -46,6 +44,9 @@ public abstract class Money implements MoneyInput, Serializable {
 			}
 			this.classification = classification;
 		}
+	}
+	public String getClassification() {
+		return classification;
 	}
 	public String getMoneyName() {
 		return moneyName;

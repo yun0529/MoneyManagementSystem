@@ -14,4 +14,10 @@ public class CheckingAccount extends Money implements MoneyInput{
 		super.setMoneyAmount(sc);
 		return true;
 	}
+
+	@Override
+	public void setKind(String kind) {
+		// TODO Auto-generated method stub
+		
+	}
 }

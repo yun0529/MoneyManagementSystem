@@ -13,6 +13,8 @@ import java.util.logging.Level;
 import java.util.logging.LogManager;
 import java.util.logging.Logger;
 
+import gui.WindowFrame;
+
 public class MenuManager{
 	//static EventLogger Logger = new EventLogger("log.txt");
 	static LogManager lgmngr = LogManager.getLogManager();
@@ -25,10 +27,9 @@ public class MenuManager{
 			moneyManager = new MoneyManager(sc);
 		}
 			//new MoneyManager(sc);
-		
+		WindowFrame frame = new WindowFrame(moneyManager,new MenuManager());
 		selectMenu(sc, moneyManager);
 		putObject(moneyManager,"moneyManager.ser");
-		
 	}
 	
 	public static void selectMenu(Scanner sc, MoneyManager moneyManager) {
@@ -42,18 +43,22 @@ public class MenuManager{
 				case 1:
 					moneyManager.addMoney();
 					log.log(Level.INFO, "add a money");
+					sc2.nextLine();
 					break;
 				case 2:
 					moneyManager.deleteMoney();
 					log.log(Level.INFO, "delet a money");
+					sc2.nextLine();
 					break;
 				case 3:
 					moneyManager.editMoney();
 					log.log(Level.INFO, "edit a money");
+					sc2.nextLine();
 					break;
 				case 4:
 					moneyManager.viewMoneys();
 					log.log(Level.INFO, "view a list of money");
+					sc2.nextLine();
 					break;
 				default:
 					break;	
