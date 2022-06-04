@@ -146,3 +146,46 @@
    - model을 JTable 클래스의 객체를 생성하면서 전달해주고 생성한 JTable의 객체를 JScrollPane 클래스의 객체를 생성하면서 전달  
  ##### SpringUtilities 클래스
    - 그리드 레이아웃을 생성할때 도움을 주는 라이브러리
+
+### 2022-06-04 (11차시 실습)  
+ #### 추가된 코드  
+ ##### SelectKindMoney 클래스
+   - 메뉴 선택 화면에서 Add Money 버튼을 클릭하면 이동되는 화면으로 입, 출금의 종류(Checking_Account, Saving_Account, Loan)를 선택해야 한다.
+   - 각각의 버튼(Checking_Account, Saving_Account, Loan)을 누르면 버튼이벤트를 통해 해당하는 값으로 다음 화면에서 kind가 입력되는 텍스트필드를 초기화 한다.  
+ ##### WindowFrame 클래스
+   - 전체 프레임을 관리하는 클래스이다.
+   - 여러개의 창의 띄워지지 않고 하나의 창에서 화면만 전환되도록 하기 위한 클래스이다.
+   - 프래임 위에 띄워지는 패널의 객체를 생성하고 setupPanel(JPanel panel) 메소드를 통해 원하는 패널을 프래임 위에 띄워주도록 한다.  
+ ##### AddButtonListener 클래스
+   - SelectKindMoney 클래스가 구성하는 화면에서 버튼(Checking_Account, Saving_Account, Loan)을 누르면 실행되는 이벤트 클래스이다.
+   - 버튼에 해당하는 종류를 받아 AddMoney 화면에 종류를 넘겨주고 내역을 추가하는 화면을 띄운다.  
+ ##### BackButtonListener 클래스
+   - 뒤로가기 버튼이다.
+   - 버튼을 누르면 메뉴 선택 화면으로 돌아간다.
+ ##### EditButtonListener 클래스
+   - 내역 수정 화면에서 각각의 TextField를 받아 입력된 값을 변수에 저장한다.
+   - 기존에 있던 Money 클래스를 상속하고 moneyInput 인터패이스를 구현하는 LoanMoney, SavingMoney, CheckingAccount 클래스의 객체를 생성한다.
+   - 저장한 변수를 생성한 객체에 전달하고 해당 객체를 ArrayList의 set(int idx)메소드를 사용하여 원래있던 객체의 자리에 넣는다.  
+ ##### ExitButtonListener 클래스
+   - 프로그램을 종료시키는 버튼이다.
+   - 프로그램을 실행한 후 추가, 수정, 삭제 했던 내역을 저장하고 프로그램을 종료한다.  
+ ##### KindButtonListener 클래스
+   - 메뉴 선택 화면에서 Add Money 버튼을 누르면 실행되는 이벤트 클래스다.
+   - 입, 출금의 종류를 선택하는 화면을 띄워준다.  
+ ##### SaveButtonListener 클래스
+   - 내역을 추가하는 화면의 텍스트필드를 받고 텍스트 필드에 입력된 값을 변수에 저장한다.
+   - 입, 출금의 종류(Checking_Account, Saving_Account, Loan)에 맞는 객체를 생성한다.
+   - 생성한 객체에 변수에 저장한 값을 전달하고 MoneyManager 클래스의 addMoneyList() 메소드를 사용하여 생성한 객체를 리스트에 추가한다.  
+ ##### TableEditButtonListener 클래스
+   - 내역을 보여주는 ViewMoney 화면에서 edit 버튼을 누르면 실행되는 이벤트 클래스이다.
+   - 선택한 열의 index와 열에 저장된 칼럼의 정보를 내역 수정 화면에 전달하고 화면을 띄운다.  
+ ##### ViewButtonListener 클래스
+   - 메뉴 선택 버튼에서 ViewMoney 버튼을 누르면 실행되는 이벤트 클래스이다.
+   - 추가된 입, 출금 내역을 JTable을 사용하여 보여준다.  
+ #### 변경된 코드 
+ ##### AddMoney 클래스
+   - save 버튼을 누르면 입력한 값들이 내역에 추가되고 추가가 완료되면 메뉴 선택화면으로 나가지도록 이벤트를 설정하였다.
+   - cancel 버튼을 누르면 작성하던것을 취소하고 메뉴 선택 화면으로 나가지도록 하였다.
+ ##### ViewMoney 클래스
+   - 기존에 있는 MenuManager, MoneyManager 클래스와 연동하여 시리얼리제이션 되어있는 값을 읽어와 리스트에 저장하고 각각의 칼럼에 맞게 테이블에 띄워주었다.
+   - 수정, 삭제, 새로고침, 뒤로가기 버튼을 추가하고 각각의 기능이 실행되도록 하였다.
