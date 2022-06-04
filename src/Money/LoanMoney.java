@@ -3,6 +3,9 @@ package Money;
 import java.util.Scanner;
 
 public class LoanMoney extends Money implements MoneyInput{
+	public LoanMoney(){
+		super.setKind(MoneyKind.Loan);
+	}
 	public boolean getKindInput(Scanner sc) {
 		super.setKind(MoneyKind.Loan);
 		sc.nextLine();

@@ -3,12 +3,14 @@ package Money;
 import java.util.Scanner;
 
 public class SavingMoney extends Money implements MoneyInput{
-
+	public SavingMoney() {
+		super.setKind(MoneyKind.Saving_Account);
+	}
 	public boolean getKindInput(Scanner sc) {
 		super.setKind(MoneyKind.Saving_Account);
 		sc.nextLine();
 		setMoneyClassification(sc);
-		
+
 		char answer = 'x';
 		while(answer != 'y' || answer != 'Y' || answer != 'n' || answer != 'N') {
 			System.out.print("Would you like to deposit (y / n) : ");

@@ -34,7 +34,7 @@ public class SelectKindMoney extends JPanel{
 
 		btn1.addActionListener(new AddButtonListener(frame, "Checking Account",moneyManager));
 		btn2.addActionListener(new AddButtonListener(frame, "Saving Account",moneyManager));
-		btn3.addActionListener(new AddButtonListener(frame, "Loan Money",moneyManager));
+		btn3.addActionListener(new AddButtonListener(frame, "Loan",moneyManager));
 		btn4.addActionListener(new BackButtonListener(frame));
 		titlePanel.add(label);
 		buttonPanel.setLayout(new FlowLayout(FlowLayout.CENTER,10,10));

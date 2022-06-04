@@ -25,7 +25,7 @@ public class WindowFrame extends JFrame{
 		this.setupPanel(menuSelection);
 		this.setTitle("MyFrame");
 		
-		this.setSize(300,300);
+		this.setSize(500,500);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setVisible(true);
 	}

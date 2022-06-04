@@ -23,4 +23,5 @@ public interface MoneyInput {
 
 	public MoneyKind getKind();
 
+	public void setGuiClassification(String k, String c);
 }

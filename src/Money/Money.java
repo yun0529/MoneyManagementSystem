@@ -12,7 +12,7 @@ public abstract class Money implements MoneyInput, Serializable {
 	 */
 	private static final long serialVersionUID = -8662641725169276222L;
 	
-	protected MoneyKind kind = MoneyKind.Checking_Account;
+	protected MoneyKind kind;
 	protected String classification = null;
 	protected String moneyName = null;
 	protected int amount = 0;
@@ -118,6 +118,27 @@ public abstract class Money implements MoneyInput, Serializable {
 				}
 				n = " ";
 			}
+		}
+	}
+	@SuppressWarnings("unlikely-arg-type")
+	public void setGuiClassification(String k, String c) {
+		if(k.equals(MoneyKind.Checking_Account)) {
+			if(classification.equals("add") || classification.equals("spend")) {
+				this.classification = c;
+			}
+			else {
+				System.out.println("Input add or spend");
+			}
+		}else if(k.equals(MoneyKind.Saving_Account)) {
+			if(!classification.equals("deposit")) {
+				System.out.println("Input deposit");
+			}
+			this.classification = c;
+		}else if(k.equals(MoneyKind.Loan)) {
+			if(!classification.equals("loan")) {
+				System.out.println("Input loan");
+			}
+			this.classification = c;
 		}
 	}
 }

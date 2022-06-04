@@ -154,4 +154,10 @@ public class MoneyManager implements Serializable{
 	public ArrayList<MoneyInput> getList() {
 		return moneyList;
 	}
+	public void changeArr(int idx, MoneyInput moneyInput) {
+		moneyList.set(idx, moneyInput);
+	}
+	public void removeArr(int idx) {
+		moneyList.remove(idx);
+	}
 }

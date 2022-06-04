@@ -36,6 +36,8 @@ public class MenuSelection extends JPanel{
 		JButton btn5 = new JButton("Exit Program");
 
 		btn1.addActionListener(new KindButtonListener(frame));
+		btn2.addActionListener(new ViewButtonListener(frame));
+		btn3.addActionListener(new ViewButtonListener(frame));
 		btn4.addActionListener(new ViewButtonListener(frame));
 		btn5.addActionListener(new ExitButtonListener(frame, moneyManager, menuManager));
 		titlePanel.add(label);
